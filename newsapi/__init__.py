@@ -11,17 +11,17 @@ class NewsAPI(object):
     def request(self, endpoint, params={}):
         params['apiKey'] = self.api_key
         endpoint_url = '{}{}?{}'.format(self.base_endpoint, endpoint, urllib.urlencode(params))
-        response = requests.get(endpoint_url)
-        response_dict = response.json()
+        self.response = requests.get(endpoint_url)
+        response_dict = self.response.json()
 
-        if response.status_code == 200 and \
+        if self.response.status_code == 200 and \
            response_dict['status'] == 'ok' and \
            endpoint in response_dict:
-            data = response_dict[endpoint]
+            self.data = response_dict[endpoint]
         else:
-            data = []
+            self.data = []
 
-        return data
+        return self.data
 
     def articles(self, source, params={}):
         params['source'] = source
