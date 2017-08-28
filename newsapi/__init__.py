@@ -1,4 +1,4 @@
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 import requests
 
@@ -10,7 +10,7 @@ class NewsAPI(object):
 
     def request(self, endpoint, params={}):
         params['apiKey'] = self.api_key
-        endpoint_url = '{}{}?{}'.format(self.base_endpoint, endpoint, urllib.urlencode(params))
+        endpoint_url = '{}{}?{}'.format(self.base_endpoint, endpoint, urllib.parse.urlencode(params))
         self.response = requests.get(endpoint_url)
         response_dict = self.response.json()
 
