@@ -4,7 +4,7 @@ class NewsAPI(NewsAPIBase):
     API_VERSION = "v2"
 
     def get_base_endpoint(self):
-        return  'https://beta.newsapi.org/{}/'.format(self.get_api_version())
+        return  'http://beta.newsapi.org/{}/'.format(self.get_api_version())
 
     def top_headlines(self, sources, params={}):
         params['sources'] = sources
