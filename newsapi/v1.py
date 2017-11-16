@@ -9,4 +9,4 @@ class NewsAPI(NewsAPIBase):
 
 
     def sources(self, params={}):
-        return self.request('sources', 'articles', params)
+        return self.request('sources', 'sources', params)
