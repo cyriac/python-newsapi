@@ -5,11 +5,11 @@ from setuptools import setup, find_packages
 
 install_reqs = parse_requirements('requirements.txt', session=PipSession())
 reqs = [str(ir.req) for ir in install_reqs]
-version = '0.1'
+version = '1.0.1'
 
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
-    name='newsapi',
+    name='python-newsapi',
     version=version,
     packages=find_packages(),
     install_requires=reqs,
@@ -24,6 +24,8 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
 )
